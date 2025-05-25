@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udaan Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;  /* Increased height */
+            width: auto;   /* Added to maintain aspect ratio */
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            color: #2c3e50;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .login-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+        /* Add these new styles to your existing <style> section */
+                .hero-section {
+                    margin-top: 80px; /* Space for fixed navbar */
+                    padding: 4rem 2rem;
+                    background: linear-gradient(to right, #f5f5f5, #e0e0e0);
+                    min-height: 80vh;
+                    display: flex;
+                    align-items: center;
+                }
+
+                .hero-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 2rem;
+                }
+
+                .hero-content {
+                    flex: 1;
+                    max-width: 600px;
+                }
+
+                .hero-title {
+                    font-size: 3.5rem;
+                    color: #2c3e50;
+                    margin-bottom: 1.5rem;
+                    line-height: 1.2;
+                }
+
+                .hero-subtitle {
+                    font-size: 1.25rem;
+                    color: #34495e;
+                    margin-bottom: 2rem;
+                    line-height: 1.6;
+                }
+
+                .hero-buttons {
+                    display: flex;
+                    gap: 1rem;
+                }
+
+                .hero-btn {
+                    padding: 1rem 2rem;
+                    border-radius: 8px;
+                    font-size: 1.1rem;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: transform 0.3s, box-shadow 0.3s;
+                }
+
+                .hero-btn:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                }
+
+                .btn-primary {
+                    background-color: #3498db;
+                    color: white;
+                    border: none;
+                }
+
+                .btn-secondary {
+                    background-color: white;
+                    color: #2c3e50;
+                    border: 2px solid #3498db;
+                }
+
+                .hero-image {
+                    flex: 1;
+                    max-width: 500px;
+                }
+
+                .hero-image img {
+                    width: 100%;
+                    height: auto;
+                    border-radius: 10px;
+                }
+
+                @media (max-width: 768px) {
+                    .hero-container {
+                        flex-direction: column;
+                        text-align: center;
+                    }
+
+                    .hero-buttons {
+                        justify-content: center;
+                    }
+
+                    .hero-title {
+                        font-size: 2.5rem;
+                    }
+                }
+            /* Add these to your existing style section */
+                    .error {
+                        border-color: #e74c3c !important;
+                    }
+
+                    .hero-content, .hero-image {
+                        opacity: 0;
+                    }
+
+                    /* Animation classes */
+                    .fade-in {
+                        animation: fadeIn 1s ease-in forwards;
+                    }
+
+                    @keyframes fadeIn {
+                        from { opacity: 0; }
+                        to { opacity: 1; }
+                    }
+            </style>
+        </head>
+        <body>
+            <!-- Your existing navbar was incomplete. Let's fix it -->
+            <nav class="navbar">
+                <div class="nav-container">
+                    <a href="index.html" class="logo">
+                        <img src="./Frontend/images/122Rojgar Radar.png" alt="Rozgar Radar Logo">
+                        <span class="logo-text">Udaan Tracker</span>
+                    </a>
+                    <div class="nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="./Frontend/submit.html">Submit Data</a>
+                        <a href="./Frontend/dashboard.html">Dashboard</a>
+                        <a href="./Frontend/about.html">About</a>
+                        <a href="./Frontend/contact.html">Contact</a>
+                        <a href="./Frontend/login.html" class="login-link"><button class="login-btn">Login</button></a>
+                    </div>
+                </div>
+            </nav>
+            
+            <section class="hero-section">
+                <div class="hero-container">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Track Youth Employment to Build a Stronger Tomorrow</h1>
+                        <p class="hero-subtitle">Help us gather vital data to reduce youth unemployment in your region.</p>
+                        <div class="hero-buttons">
+                            <a href="./Frontend/submit.html"><button class="hero-btn btn-primary">Take the Survey</button></a>
+                            <a href="./Frontend/dashboard.html"><button class="hero-btn btn-secondary">View Dashboard</button></a>
+                        </div>
+                    </div>
+                    <div class="hero-image">
+                        <img src="./Frontend/images/360_F_816891382_ghUe7DSA2eLIbpCZkqBLoVfRIAN5XMk4.jpg" alt="Youth Employment Initiative">
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Add new intro section -->
+            <section class="intro-section">
+                <div class="intro-container">
+                    <h2 class="intro-title">Why Track Youth Unemployment?</h2>
+                    <p class="intro-text">
+                        Unemployment among youth affects the economy, mental health, and future growth. By collecting data from various states, we help NGOs and policymakers create better solutions.
+                    </p>
+                    <div class="intro-features">
+                        <div class="feature">
+                            <div class="feature-icon">📊</div>
+                            <h3>Data Insights</h3>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🎓</div>
+                            <h3>Education vs Employment</h3>
+                        </div>
+                        <div class="feature">
+                            <div class="feature-icon">🤝</div>
+                            <h3>NGO Collaboration</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Stats Section -->
+            <section class="stats-section">
+                <div class="stats-container">
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="1203">20</div>
+                        <div class="stat-label">Total Submissions</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="18">18</div>
+                        <div class="stat-label">States Covered</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number" data-target="32">32</div>
+                        <div class="stat-label">Unemployment Rate %</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- How It Works Section -->
+            <section class="how-it-works">
+                <div class="container">
+                    <h2 class="section-title">How It Works</h2>
+                    <div class="steps-container">
+                        <div class="step">
+                            <div class="step-icon">📝</div>
+                            <h3>Submit Info</h3>
+                            <p>Fill a short form with your job and education details.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">📊</div>
+                            <h3>We Analyze</h3>
+                            <p>Our backend cleans and categorizes the data.</p>
+                        </div>
+                        <div class="step">
+                            <div class="step-icon">🌍</div>
+                            <h3>View Results</h3>
+                            <p>Explore the visual dashboard anytime.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Call-to-Action Section -->
+            <section class="cta-section">
+                <div class="cta-container">
+                    <h2 class="cta-title">Ready to Contribute?</h2>
+                    <p class="cta-description">Join us in making a difference by participating in our survey or exploring the dashboard for insightful data.</p>
+                    <div class="cta-buttons">
+                        <a href="./Frontend/submit.html"><button class="cta-btn primary-btn">Take the Survey</button></a>
+                        <a href="./Frontend/dashboard.html"><button class="cta-btn secondary-btn">Explore Dashboard</button></a>
+                    </div>
+                </div>
+            </section>
+
+            <style>
+                .cta-section {
+                    background: linear-gradient(135deg, #3498db, #2c3e50);
+                    padding: 5rem 2rem;
+                    text-align: center;
+                    color: white;
+                }
+
+                .cta-container {
+                    max-width: 1000px;
+                    margin: 0 auto;
+                    padding: 2rem;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                .cta-title {
+                    font-size: 3rem;
+                    margin-bottom: 1.5rem;
+                    font-weight: bold;
+                }
+
+                .cta-description {
+                    font-size: 1.2rem;
+                    margin-bottom: 2rem;
+                    line-height: 1.6;
+                }
+
+                .cta-buttons {
+                    display: flex;
+                    justify-content: center;
+                    gap: 1.5rem;
+                }
+
+                .cta-btn {
+                    padding: 1rem 2.5rem;
+                    font-size: 1.2rem;
+                    font-weight: 600;
+                    border-radius: 8px;
+                    cursor: pointer;
+                    transition: transform 0.3s, box-shadow 0.3s;
+                }
+
+                .cta-btn:hover {
+                    transform: translateY(-3px);
+                    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+                }
+
+                .primary-btn {
+                    background-color: white;
+                    color: #3498db;
+                    border: none;
+                }
+
+                .secondary-btn {
+                    background-color: transparent;
+                    color: white;
+                    border: 2px solid white;
+                }
+
+                @media (max-width: 768px) {
+                    .cta-buttons {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    .cta-btn {
+                        width: 100%;
+                        max-width: 300px;
+                    }
+                }
+            </style>
+
+            <script>
+                // Add button click handlers for CTA section
+                document.querySelector('.primary-btn').addEventListener('click', function() {
+                    window.location.href = './Frontend/submit.html';
+                });
+
+                document.querySelector('.secondary-btn').addEventListener('click', function() {
+                    window.location.href = './Frontend/dashboard.html';
+                });
+            </script>
+            
+            <style>
+                .how-it-works {
+                    padding: 5rem 2rem;
+                    background-color: #ffffff;
+                }
+
+                .section-title {
+                    text-align: center;
+                    font-size: 2.5rem;
+                    color: #2c3e50;
+                    margin-bottom: 3rem;
+                }
+
+                .steps-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: space-between;
+                    gap: 2rem;
+                }
+
+                .step {
+                    flex: 1;
+                    text-align: center;
+                    padding: 2rem;
+                    border-radius: 10px;
+                    background-color: #f8f9fa;
+                    transition: transform 0.3s ease;
+                }
+
+                .step:hover {
+                    transform: translateY(-10px);
+                    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+                }
+
+                .step-icon {
+                    font-size: 3rem;
+                    margin-bottom: 1.5rem;
+                }
+
+                .step h3 {
+                    color: #2c3e50;
+                    font-size: 1.5rem;
+                    margin-bottom: 1rem;
+                }
+
+                .step p {
+                    color: #34495e;
+                    line-height: 1.6;
+                }
+
+                @media (max-width: 768px) {
+                    .steps-container {
+                        flex-direction: column;
+                        align-items: center;
+                    }
+
+                    .step {
+                        max-width: 400px;
+                        width: 100%;
+                    }
+                }
+            </style>
+            <style>
+                .stats-section {
+                    background-color: #f8f9fa;
+                    padding: 4rem 2rem;
+                }
+
+                .stats-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: space-around;
+                    gap: 2rem;
+                    flex-wrap: wrap;
+                }
+
+                .stat-card {
+                    background: white;
+                    padding: 2rem;
+                    border-radius: 10px;
+                    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+                    text-align: center;
+                    min-width: 200px;
+                    flex: 1;
+                }
+
+                .stat-number {
+                    font-size: 3rem;
+                    font-weight: bold;
+                    color: #3498db;
+                    margin-bottom: 0.5rem;
+                }
+
+                .stat-label {
+                    color: #2c3e50;
+                    font-size: 1.1rem;
+                }
+
+                @media (max-width: 768px) {
+                    .stat-card {
+                        min-width: 150px;
+                    }
+                }
+            </style>
+
+            <script>
+                // Add this to your existing script section
+                function animateValue(obj, start, end, duration) {
+                    let startTimestamp = null;
+                    const step = (timestamp) => {
+                        if (!startTimestamp) startTimestamp = timestamp;
+                        const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                        obj.innerHTML = Math.floor(progress * (end - start) + start);
+                        if (progress < 1) {
+                            window.requestAnimationFrame(step);
+                        }
+                    };
+                    window.requestAnimationFrame(step);
+                }
+
+                // Animate stats when they come into view
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const statNumbers = document.querySelectorAll('.stat-number');
+                            statNumbers.forEach(number => {
+                                const target = parseInt(number.getAttribute('data-target'));
+                                animateValue(number, 0, target, 2000);
+                            });
+                            observer.unobserve(entry.target);
+                        }
+                    });
+                }, { threshold: 0.5 });
+
+                document.querySelector('.stats-section').forEach(section => {
+                    observer.observe(section);
+                });
+            </script>
+            
+            <!-- Add these styles to your existing <style> section -->
+            <style>
+                .intro-section {
+                    padding: 5rem 2rem;
+                    background-color: #ffffff;
+                }
+
+                .intro-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    text-align: center;
+                }
+
+                .intro-title {
+                    font-size: 2.5rem;
+                    color: #2c3e50;
+                    margin-bottom: 1.5rem;
+                }
+
+                .intro-text {
+                    font-size: 1.2rem;
+                    color: #34495e;
+                    max-width: 800px;
+                    margin: 0 auto 3rem auto;
+                    line-height: 1.6;
+                }
+
+                .intro-features {
+                    display: flex;
+                    justify-content: center;
+                    gap: 4rem;
+                    flex-wrap: wrap;
+                }
+
+                .feature {
+                    flex: 1;
+                    min-width: 250px;
+                    max-width: 300px;
+                    padding: 2rem;
+                    border-radius: 10px;
+                    background-color: #f8f9fa;
+                    transition: transform 0.3s ease;
+                }
+
+                .feature:hover {
+                    transform: translateY(-10px);
+                }
+
+                .feature-icon {
+                    font-size: 3rem;
+                    margin-bottom: 1rem;
+                }
+
+                .feature h3 {
+                    color: #2c3e50;
+                    font-size: 1.3rem;
+                }
+
+                @media (max-width: 768px) {
+                    .intro-features {
+                        gap: 2rem;
+                    }
+
+                    .feature {
+                        min-width: 200px;
+                    }
+                }
+            </style>
+        
+            <!-- Rest of your content will go here -->
+        </body>
+        <!-- Add this before closing body tag -->
+            <footer class="footer-section">
+                <div class="footer-container">
+                    <div class="footer-logo">
+                        <img src="./Frontend/images/122Rojgar Radar.png" alt="Rozgar Radar Logo" class="footer-logo-img">
+                        <span class="footer-logo-text">Udaan Tracker</span>
+                    </div>
+                    <div class="footer-links">
+                        <a href="index.html">Home</a>
+                        <a href="submit-data.html">Submit Data</a>
+                        <a href="dashboard.html">Dashboard</a>
+                        <a href="about.html">About</a>
+                        <a href="contact.html">Contact</a>
+                    </div>
+                    <div class="footer-contact">
+                        <p>Email: info@youthtracker.com</p>
+                        <div class="social-icons">
+                            <a href="https://www.linkedin.com" target="_blank">LinkedIn</a>
+                            <a href="https://www.instagram.com" target="_blank">Instagram</a>
+                        </div>
+                    </div>
+                    <div class="footer-copyright">
+                        <p>© 2025 Udaan Tracker</p>
+                    </div>
+                </div>
+            </footer>
+            
+            <style>
+                .footer-section {
+                    background-color: #2c3e50;
+                    color: white;
+                    padding: 2rem;
+                    text-align: center;
+                }
+
+                .footer-container {
+                    max-width: 1200px;
+                    margin: 0 auto;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    gap: 1.5rem;
+                }
+
+                .footer-logo {
+                    display: flex;
+                    align-items: center;
+                    gap: 0.5rem;
+                }
+
+                .footer-logo-img {
+                    height: 40px;
+                    width: auto;
+                }
+
+                .footer-logo-text {
+                    font-size: 1.5rem;
+                    font-weight: bold;
+                }
+
+                .footer-links a {
+                    color: white;
+                    text-decoration: none;
+                    margin: 0 0.5rem;
+                    transition: color 0.3s;
+                }
+
+                .footer-links a:hover {
+                    color: #3498db;
+                }
+
+                .footer-contact p {
+                    margin: 0.5rem 0;
+                }
+
+                .social-icons a {
+                    color: white;
+                    text-decoration: none;
+                    margin: 0 0.5rem;
+                    transition: color 0.3s;
+                }
+
+                .social-icons a:hover {
+                    color: #3498db;
+                }
+
+                .footer-copyright {
+                    font-size: 0.9rem;
+                }
+            </style>
+        
+            <script>
+                // Smooth scrolling for navigation links
+                document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                    anchor.addEventListener('click', function (e) {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    });
+                });
+        
+                // Button click handlers
+                document.querySelector('.btn-primary').addEventListener('click', function() {
+                    window.location.href = './Frontend/submit.html'; // Updated path to submit.html
+                });
+        
+                document.querySelector('.btn-secondary').addEventListener('click', function() {
+                    window.location.href = 'dashboard.html';
+                });
+        
+                // Mobile menu toggle (for future implementation)
+                let mobileMenuOpen = false;
+                function toggleMobileMenu() {
+                    const navLinks = document.querySelector('.nav-links');
+                    mobileMenuOpen = !mobileMenuOpen;
+                    navLinks.style.display = mobileMenuOpen ? 'flex' : 'none';
+                }
+        
+                // Add animation to hero section on page load
+                window.addEventListener('load', function() {
+                    const heroContent = document.querySelector('.hero-content');
+                    const heroImage = document.querySelector('.hero-image');
+                    
+                    heroContent.style.opacity = '0';
+                    heroImage.style.opacity = '0';
+                    
+                    setTimeout(() => {
+                        heroContent.style.transition = 'opacity 1s ease-in-out';
+                        heroImage.style.transition = 'opacity 1s ease-in-out';
+                        heroContent.style.opacity = '1';
+                        heroImage.style.opacity = '1';
+                    }, 100);
+                });
+        
+                // Form validation for future implementation
+                function validateForm(formElement) {
+                    const inputs = formElement.querySelectorAll('input[required]');
+                    let isValid = true;
+                    
+                    inputs.forEach(input => {
+                        if (!input.value.trim()) {
+                            isValid = false;
+                            input.classList.add('error');
+                        } else {
+                            input.classList.remove('error');
+                        }
+                    });
+                    
+                    return isValid;
+                }
+            </script>
+        </html>
+        <script>
+            async function fetchHomeStats() {
+                try {
+                    const response = await fetch('http://localhost:8000/api/home-stats/');
+                    const data = await response.json();
+                    
+                    // Update statistics
+                    document.querySelector('[data-target="1203"]').textContent = data.total_submissions;
+                    document.querySelector('[data-target="18"]').textContent = data.states_covered;
+                    document.querySelector('[data-target="32"]').textContent = data.unemployment_rate;
+                    
+                } catch (error) {
+                    console.error('Error fetching home stats:', error);
+                }
+            }
+        
+            // Call this function when the page loads
+            document.addEventListener('DOMContentLoaded', fetchHomeStats);
+            </script>

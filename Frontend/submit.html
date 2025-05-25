@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Data - Udaan Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            color: #2c3e50;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .login-btn {
+            background-color: #3498db;
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .login-btn:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="./images/122Rojgar Radar.png" alt="Rozgar Radar Logo">
+                <span class="logo-text">Udaan Tracker</span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="submit-data.html">Submit Data</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+                <!-- Removed the login button -->
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Heading -->
+    <section class="page-heading">
+        <h1 class="heading-title">📝 Submit Your Employment Details</h1>
+        <p class="heading-subtext">Help us understand youth employment better. Your contribution matters!</p>
+    </section>
+
+    <!-- Survey Form Section -->
+    <section class="survey-form-section">
+        <div class="form-container">
+            <form id="surveyForm">
+                <h2>📋 Submit Your Employment Details</h2>
+                
+                <label for="fullName">Full Name <span style="color: red;">*</span></label>
+                <input type="text" id="fullName" name="fullName" required>
+
+                <label for="age">Age <span style="color: red;">*</span></label>
+                <input type="number" id="age" name="age" min="15" max="30" required>
+
+                <label>Gender <span style="color: red;">*</span></label>
+                <div class="radio-group">
+                    <input type="radio" id="male" name="gender" value="Male" required>
+                    <label for="male">Male</label>
+                    <input type="radio" id="female" name="gender" value="Female">
+                    <label for="female">Female</label>
+                    <input type="radio" id="other" name="gender" value="Other">
+                    <label for="other">Other</label>
+                </div>
+
+                <label for="state">State / District <span style="color: red;">*</span></label>
+                <select id="state" name="state" required>
+                    <option value="">Select State</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+                    <option value="Assam">Assam</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Chhattisgarh">Chhattisgarh</option>
+                    <option value="Goa">Goa</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Haryana">Haryana</option>
+                    <option value="Himachal Pradesh">Himachal Pradesh</option>
+                    <option value="Jharkhand">Jharkhand</option>
+                    <option value="Karnataka">Karnataka</option>
+                    <option value="Kerala">Kerala</option>
+                    <option value="Madhya Pradesh">Madhya Pradesh</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <option value="Manipur">Manipur</option>
+                    <option value="Meghalaya">Meghalaya</option>
+                    <option value="Mizoram">Mizoram</option>
+                    <option value="Nagaland">Nagaland</option>
+                    <option value="Odisha">Odisha</option>
+                    <option value="Punjab">Punjab</option>
+                    <option value="Rajasthan">Rajasthan</option>
+                    <option value="Sikkim">Sikkim</option>
+                    <option value="Tamil Nadu">Tamil Nadu</option>
+                    <option value="Telangana">Telangana</option>
+                    <option value="Tripura">Tripura</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="Uttarakhand">Uttarakhand</option>
+                    <option value="West Bengal">West Bengal</option>
+                </select>
+
+                <label for="education">Education Level <span style="color: red;">*</span></label>
+                <select id="education" name="education" required>
+                    <option value="">Select Education Level</option>
+                    <option value="10th">10th</option>
+                    <option value="12th">12th</option>
+                    <option value="Graduate">Graduate</option>
+                    <option value="Postgraduate">Postgraduate</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="Others">Others</option>
+                </select>
+
+                <label>Employment Status <span style="color: red;">*</span></label>
+                <div class="radio-group">
+                    <input type="radio" id="employed" name="employmentStatus" value="Employed" required>
+                    <label for="employed">Employed</label>
+                    <input type="radio" id="unemployed" name="employmentStatus" value="Unemployed">
+                    <label for="unemployed">Unemployed</label>
+                    <input type="radio" id="selfEmployed" name="employmentStatus" value="Self-employed">
+                    <label for="selfEmployed">Self-employed</label>
+                </div>
+
+                <div id="jobTypeContainer" style="display: none;">
+                    <label for="jobType">Job Type</label>
+                    <select id="jobType" name="jobType">
+                        <option value="">Select Job Type</option>
+                        <option value="Govt">Govt</option>
+                        <option value="Pvt">Pvt</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+
+                <!-- Consent Checkbox -->
+                <div class="consent-checkbox" style="display: flex; align-items: center; margin-top: 1.5rem;">
+                    <input type="checkbox" id="consent" name="consent" required style="margin-right: 0.5rem;">
+                    <label for="consent">I agree to share my data for research purposes <span style="color: red;">*</span></label>
+                </div>
+
+                <button type="submit">Submit</button>
+            </form>
+            <div id="confirmationMessage" style="display: none; text-align: center; margin-top: 2rem;">
+                <p>✅ Thank you for submitting your information!</p>
+                <p>Your response has been recorded.</p>
+                <button onclick="window.location.href='../index.html'">Go to Home</button>
+                <button onclick="resetForm()">Submit Another Response</button>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .toast {
+            visibility: hidden;
+            min-width: 250px;
+            margin-left: -125px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            border-radius: 2px;
+            padding: 16px;
+            position: fixed;
+            z-index: 1;
+            left: 50%;
+            bottom: 30px;
+            font-size: 17px;
+        }
+
+        .toast.show {
+            visibility: visible;
+            -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+            animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @-webkit-keyframes fadein {
+            from {bottom: 0; opacity: 0;} 
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @keyframes fadein {
+            from {bottom: 0; opacity: 0;}
+            to {bottom: 30px; opacity: 1;}
+        }
+
+        @-webkit-keyframes fadeout {
+            from {bottom: 30px; opacity: 1;} 
+            to {bottom: 0; opacity: 0;}
+        }
+
+        @keyframes fadeout {
+            from {bottom: 30px; opacity: 1;}
+            to {bottom: 0; opacity: 0;}
+        }
+    </style>
+
+    <script>
+        document.getElementById('surveyForm').addEventListener('change', function() {
+            const employmentStatus = document.querySelector('input[name="employmentStatus"]:checked').value;
+            const jobTypeContainer = document.getElementById('jobTypeContainer');
+            if (employmentStatus === 'Employed') {
+                jobTypeContainer.style.display = 'block';
+            } else {
+                jobTypeContainer.style.display = 'none';
+            }
+        });
+
+        document.getElementById('surveyForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const age = document.getElementById('age').value;
+            if (age < 15 || age > 30) {
+                alert('Age must be between 15 and 30.');
+                return;
+            }
+            // Simulate form submission
+            setTimeout(() => {
+                showToast();
+                document.getElementById('surveyForm').style.display = 'none';
+                document.getElementById('confirmationMessage').style.display = 'block';
+            }, 500); // Simulate a delay for form submission
+        });
+
+        function resetForm() {
+            document.getElementById('surveyForm').reset();
+            document.getElementById('surveyForm').style.display = 'block';
+            document.getElementById('confirmationMessage').style.display = 'none';
+        }
+
+        function showToast() {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerText = 'Form submitted successfully!';
+            document.body.appendChild(toast);
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+                document.body.removeChild(toast);
+            }, 3000);
+        }
+    </script>
+    <style>
+        .survey-form-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 3rem;
+            background-color: #f7fafc;
+        }
+
+        .form-container {
+            background-color: #ffffff;
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            max-width: 650px;
+            width: 100%;
+        }
+
+        form h2 {
+            text-align: center;
+            margin-bottom: 2.5rem;
+            color: #2c3e50;
+            font-size: 1.8rem;
+        }
+
+        label {
+            display: block;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        select {
+            width: 100%;
+            padding: 0.85rem;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin-top: 2rem;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+    </style>
+    <script>
+        document.getElementById('surveyForm').addEventListener('change', function() {
+            const employmentStatus = document.querySelector('input[name="employmentStatus"]:checked').value;
+            const jobTypeContainer = document.getElementById('jobTypeContainer');
+            if (employmentStatus === 'Employed') {
+                jobTypeContainer.style.display = 'block';
+            } else {
+                jobTypeContainer.style.display = 'none';
+            }
+        });
+
+        document.getElementById('surveyForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = {
+                name: document.getElementById('name').value,
+                age: parseInt(document.getElementById('age').value),
+                gender: document.getElementById('gender').value,
+                state: document.getElementById('state').value,
+                education: document.getElementById('education').value,
+                status: document.getElementById('status').value,
+                jobtype: document.getElementById('jobtype').value
+            };
+        
+            try {
+                const response = await fetch('http://localhost:8000/api/submit-survey/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(formData)
+                });
+        
+                if (response.ok) {
+                    alert('Survey submitted successfully!');
+                    document.getElementById('surveyForm').reset();
+                } else {
+                    const error = await response.json();
+                    alert('Error submitting survey: ' + JSON.stringify(error));
+                }
+            } catch (error) {
+                alert('Error submitting survey: ' + error.message);
+            }
+        });
+
+        function resetForm() {
+            document.getElementById('surveyForm').reset();
+            document.getElementById('surveyForm').style.display = 'block';
+            document.getElementById('confirmationMessage').style.display = 'none';
+        }
+    </script>
+    <style>
+        .page-heading {
+            text-align: center;
+            margin-top: 100px; /* Space for fixed navbar */
+            padding: 2rem;
+        }
+
+        .heading-title {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .heading-subtext {
+            font-size: 1.2rem;
+            color: #34495e;
+        }
+    </style>
+</body>
+</html>
+
+<script>
+// Fetch states for dropdown
+async function loadStates() {
+    try {
+        const response = await fetch('http://localhost:8000/api/get-states/');
+        const states = await response.json();
+        const stateSelect = document.getElementById('state');
+        states.forEach(state => {
+            const option = document.createElement('option');
+            option.value = state;
+            option.textContent = state;
+            stateSelect.appendChild(option);
+        });
+    } catch (error) {
+        console.error('Error loading states:', error);
+    }
+}
+
+// Handle form submission
+document.getElementById('surveyForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const formData = {
+        name: document.getElementById('name').value,
+        age: parseInt(document.getElementById('age').value),
+        gender: document.getElementById('gender').value,
+        state: document.getElementById('state').value,
+        education: document.getElementById('education').value,
+        status: document.getElementById('status').value,
+        jobtype: document.getElementById('jobtype').value
+    };
+
+    try {
+        const response = await fetch('http://localhost:8000/api/submit-survey/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(formData)
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            alert('Survey submitted successfully!');
+            document.getElementById('surveyForm').reset();
+        } else {
+            alert('Error: ' + JSON.stringify(data));
+        }
+    } catch (error) {
+        alert('Error submitting survey: ' + error.message);
+    }
+});
+
+// Load states when page loads
+document.addEventListener('DOMContentLoaded', loadStates);
+</script>

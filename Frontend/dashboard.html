@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Udaan Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            color: #2c3e50;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="./images/122Rojgar Radar.png" alt="Rozgar Radar Logo">
+                <span class="logo-text">Udaan Tracker</span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="submit.html">Submit Data</a>
+                <a href="dashboard.html">Dashboard</a>
+                <a href="about.html">About</a>
+                <a href="contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <h2>📈 Youth Unemployment Dashboard</h2>
+        <p>Track employment trends and statistics gathered from public survey and official sources.</p>
+    </section>
+
+    <!-- Search Section -->
+    <section class="search-section">
+        <div class="search-container">
+            <div class="search-box">
+                <input type="text" placeholder="Search by state, education level, or employment status...">
+                <button type="button">
+                    <i>🔍</i>
+                </button>
+            </div>
+            
+            <!-- Filter Options -->
+            <div class="filter-options">
+                <select class="filter-select" id="stateFilter">
+                    <option value="">Select State</option>
+                    <option value="Andhra Pradesh">Andhra Pradesh</option>
+                    <option value="Gujarat">Gujarat</option>
+                    <option value="Maharashtra">Maharashtra</option>
+                    <!-- Add other states -->
+                </select>
+
+                <select class="filter-select" id="genderFilter">
+                    <option value="">Select Gender</option>
+                    <option value="Male">Male</option>
+                    <option value="Female">Female</option>
+                    <option value="Other">Other</option>
+                </select>
+
+                <select class="filter-select" id="educationFilter">
+                    <option value="">Education Level</option>
+                    <option value="10th">10th</option>
+                    <option value="12th">12th</option>
+                    <option value="Graduate">Graduate</option>
+                    <option value="Postgraduate">Postgraduate</option>
+                    <option value="Diploma">Diploma</option>
+                </select>
+
+                <select class="filter-select" id="employmentFilter">
+                    <option value="">Employment Status</option>
+                    <option value="Employed">Employed</option>
+                    <option value="Unemployed">Unemployed</option>
+                    <option value="Self-employed">Self-employed</option>
+                </select>
+
+                <button class="apply-filters">Apply Filters</button>
+            </div>
+
+            <div class="filter-tags">
+                <span class="filter-tag">State: All</span>
+                <span class="filter-tag">Age: 15-30</span>
+                <span class="filter-tag">Status: All</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Metrics Section -->
+    <section class="metrics-section">
+        <div class="metrics-container">
+            <div class="metric-card">
+                <div class="metric-icon">📊</div>
+                <div class="metric-content">
+                    <h3>Total Submissions</h3>
+                    <p class="metric-number">3,285</p>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">📈</div>
+                <div class="metric-content">
+                    <h3>Unemployment Rate</h3>
+                    <p class="metric-number">42.6%</p>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">👥</div>
+                <div class="metric-content">
+                    <h3>Employed Youth</h3>
+                    <p class="metric-number">1,530</p>
+                </div>
+            </div>
+
+            <div class="metric-card">
+                <div class="metric-icon">🏛️</div>
+                <div class="metric-content">
+                    <h3>Govt Data Records</h3>
+                    <p class="metric-number">5 States</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .metrics-section {
+            padding: 2rem;
+            background-color: #f8fafc;
+        }
+
+        .metrics-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .metric-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .metric-icon {
+            font-size: 2.5rem;
+            color: #3498db;
+        }
+
+        .metric-content h3 {
+            color: #2c3e50;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .metric-number {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .metrics-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <style>
+        .filter-options {
+            display: flex;
+            gap: 1rem;
+            margin: 1.5rem 0;
+            flex-wrap: wrap;
+        }
+
+        .filter-select {
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            min-width: 180px;
+            font-size: 0.9rem;
+        }
+
+        .date-range {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .date-range input {
+            padding: 0.8rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            font-size: 0.9rem;
+        }
+
+        .apply-filters {
+            padding: 0.8rem 1.5rem;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .apply-filters:hover {
+            background-color: #2980b9;
+        }
+
+        @media (max-width: 768px) {
+            .filter-select, .date-range input {
+                width: 100%;
+            }
+            
+            .date-range {
+                width: 100%;
+            }
+
+            .apply-filters {
+                width: 100%;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+
+    <style>
+        .search-section {
+            background-color: #ffffff;
+            padding: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: #3498db;
+        }
+
+        .search-box button {
+            padding: 0.5rem 1.5rem;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: background-color 0.3s;
+        }
+
+        .search-box button:hover {
+            background-color: #2980b9;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            background-color: #f1f5f9;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #2c3e50;
+        }
+    </style>
+
+    <style>
+        .page-header {
+            text-align: center;
+            padding: 8rem 2rem 4rem;
+            background-color: #f7fafc;
+        }
+
+        .page-header h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: #34495e;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+    </style>
+
+    <!-- Charts Section -->
+    <section class="charts-section">
+        <div class="charts-container">
+            <div class="chart-card">
+                <h3>📚 Education vs Employment</h3>
+                <canvas id="educationChart"></canvas>
+            </div>
+            
+            <div class="chart-card">
+                <h3>🗺️ State-wise Distribution</h3>
+                <canvas id="stateChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>👥 Gender Distribution</h3>
+                <canvas id="genderChart"></canvas>
+            </div>
+
+            <div class="chart-card">
+                <h3>📈 Employment Trend</h3>
+                <canvas id="trendChart"></canvas>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .charts-section {
+            padding: 2rem;
+            background-color: #ffffff;
+        }
+
+        .charts-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .chart-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .chart-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        @media (max-width: 768px) {
+            .charts-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <!-- Add Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+        // Education vs Employment Chart
+        new Chart(document.getElementById('educationChart'), {
+            type: 'bar',
+            data: {
+                labels: ['10th', '12th', 'Graduate', 'Postgraduate', 'Diploma'],
+                datasets: [{
+                    label: 'Employed',
+                    data: [65, 75, 85, 90, 70],
+                    backgroundColor: '#3498db'
+                }, {
+                    label: 'Unemployed',
+                    data: [35, 25, 15, 10, 30],
+                    backgroundColor: '#e74c3c'
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        // Gender Distribution Chart
+        new Chart(document.getElementById('genderChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Male - Employed', 'Male - Unemployed', 'Female - Employed', 'Female - Unemployed'],
+                datasets: [{
+                    data: [40, 20, 25, 15],
+                    backgroundColor: ['#3498db', '#e74c3c', '#2ecc71', '#f1c40f']
+                }]
+            },
+            options: {
+                responsive: true
+            }
+        });
+
+        // Employment Trend Chart
+        new Chart(document.getElementById('trendChart'), {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Employment Rate',
+                    data: [65, 68, 70, 72, 75, 78],
+                    borderColor: '#3498db',
+                    tension: 0.4
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: {
+                        beginAtZero: false
+                    }
+                }
+            }
+        });
+
+        // State Distribution Chart
+        new Chart(document.getElementById('stateChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Maharashtra', 'Gujarat', 'Delhi', 'Karnataka', 'Tamil Nadu'],
+                datasets: [{
+                    label: 'Unemployment Rate (%)',
+                    data: [32, 28, 35, 30, 25],
+                    backgroundColor: '#9b59b6'
+                }]
+            },
+            options: {
+                responsive: true,
+                indexAxis: 'y'
+            }
+        });
+    </script>
+
+    <!-- Power BI Dashboard Section -->
+        <section class="powerbi-section">
+            <div class="powerbi-container">
+                <h2>📊 Detailed Analytics Dashboard</h2>
+                <div class="powerbi-embed-container">
+                    <iframe 
+                        title="YUT" 
+                        width="100%" 
+                        height="700" 
+                        src="https://app.powerbi.com/view?r=eyJrIjoiOGQ1ZGUyZTEtODQyZC00NGU4LThiZmMtYTkxNjU4NmE1NzUxIiwidCI6IjRhNzhmOWQwLWFiZGUtNDBjNC1hMDg4LTBiOTg5NTk5M2M0YSJ9" 
+                        frameborder="0" 
+                        allowFullScreen="true">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+        <!-- Survey Data Section -->
+        <section class="powerbi-section">
+            <div class="powerbi-container">
+                <h2>📋 Survey Data Analysis</h2>
+                <div class="powerbi-embed-container">
+                    <iframe 
+                        title="Survey" 
+                        width="100%" 
+                        height="700" 
+                        src="https://app.powerbi.com/view?r=eyJrIjoiZTZkNTAwYTYtOGRkYS00ZTkzLTg5MjUtZmYzODM5NGU3MzRiIiwidCI6IjRhNzhmOWQwLWFiZGUtNDBjNC1hMDg4LTBiOTg5NTk5M2M0YSJ9" 
+                        frameborder="0" 
+                        allowFullScreen="true">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    <style>
+        .powerbi-section {
+            padding: 2rem;
+            background-color: #f8fafc;
+        }
+
+        .powerbi-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .powerbi-container h2 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            text-align: center;
+        }
+
+        .powerbi-embed-container {
+            background: white;
+            padding: 1rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+
+        @media (max-width: 768px) {
+            .powerbi-embed-container {
+                padding: 0.5rem;
+            }
+            
+            iframe {
+                height: 500px;
+            }
+        }
+    </style>
+
+    <!-- Existing scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        // Fetch dashboard data from backend
+        async function fetchDashboardData() {
+            try {
+                const response = await fetch('http://localhost:8000/api/dashboard-data/');
+                const data = await response.json();
+                
+                // Update statistics
+                document.getElementById('total-submissions').textContent = data.total_submissions;
+                document.getElementById('unemployment-rate').textContent = data.unemployment_rate + '%';
+                
+                // Update charts with the received data
+                updateStateChart(data.state_data);
+                updateEmploymentChart(data.employment_data);
+                updateEducationChart(data.education_data);
+                updateJobTypeChart(data.job_type_data);
+                
+            } catch (error) {
+                console.error('Error fetching dashboard data:', error);
+            }
+        }
+        
+        // Call this function when the page loads
+        document.addEventListener('DOMContentLoaded', fetchDashboardData);
+        </script>
+</body>
+</html>

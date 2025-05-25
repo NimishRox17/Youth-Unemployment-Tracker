@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Udaan Tracker</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background-color: #ffffff;
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+        .logo img {
+            height: 50px;
+            width: auto;
+            margin-right: 15px;
+        }
+
+        .logo-text {
+            color: #2c3e50;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #2c3e50;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="../index.html" class="logo">
+                <img src="./images/122Rojgar Radar.png" alt="Rozgar Radar Logo">
+                <span class="logo-text">Udaan Tracker</span>
+            </a>
+            <div class="nav-links">
+                <a href="../index.html">Home</a>
+                <a href="./submit.html">Submit Data</a>
+                <a href="./dashboard.html">Dashboard</a>
+                <a href="./about.html">About</a>
+                <a href="./contact.html">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>What is Youth Unemployment?</h1>
+                <div class="hero-layout">
+                    <div class="hero-text">
+                        <p>Youth unemployment refers to the situation where young people, typically aged between 15 and 24, are actively seeking work but are unable to find a job. This group includes recent school or college graduates who are entering the job market for the first time, as well as those who may have some experience but still struggle to secure stable employment. Youth unemployment is a significant issue because it delays young people's entry into the workforce, impacting their income, skill development, and long-term career prospects.</p>
+                        <p>Several factors contribute to youth unemployment, including a mismatch between the skills young people possess and those demanded by employers, lack of work experience, slow economic growth, and limited job opportunities. In many countries, even educated youth face challenges in finding suitable jobs due to outdated education systems or a saturated job market. High youth unemployment can lead to increased frustration, social unrest, and economic instability, making it a critical issue for policymakers and societies to address.</p>
+                    </div>
+                    <div class="hero-image">
+                        <img src="./images/unemp.jpg" alt="Youth Unemployment Illustration">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Importance Section -->
+    <section class="importance-section">
+        <div class="importance-container">
+            <div class="importance-content">
+                <h2>Why Tracking is Important?</h2>
+                <div class="importance-layout">
+                    <div class="importance-image">
+                        <img src="./images/MAHESH-VYAS-1.jpg" alt="Data Tracking Illustration">
+                    </div>
+                    <div class="importance-text">
+                        <p>Tracking youth unemployment data is crucial for developing effective solutions and policies. By collecting and analyzing comprehensive data, we can identify patterns, understand regional variations, and recognize the specific challenges faced by different demographic groups. This information helps policymakers, educational institutions, and employers make informed decisions about training programs, curriculum development, and job creation initiatives.</p>
+                        <p>Regular monitoring of youth employment trends also allows us to measure the effectiveness of existing programs and interventions. It helps in early identification of emerging issues and enables quick response to changing market conditions. Furthermore, accurate tracking provides young job seekers with valuable insights about industry demands, skill requirements, and employment opportunities in their regions, helping them make better career decisions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Data Benefits Section -->
+    <section class="data-benefits-section">
+        <div class="benefits-container">
+            <div class="benefits-content">
+                <h2>How Data Helps NGOs and Policy-makers?</h2>
+                <div class="benefits-layout">
+                    <div class="benefits-text">
+                        <p>Data-driven insights enable NGOs and policy-makers to develop targeted interventions and effective youth employment programs. Through comprehensive data analysis, organizations can identify skill gaps, emerging industry trends, and regional employment disparities. This information helps in designing vocational training programs, entrepreneurship initiatives, and educational reforms that align with market demands.</p>
+                        <p>Access to reliable youth unemployment data also facilitates evidence-based policy-making and resource allocation. It helps governments and organizations measure the impact of their initiatives, adjust strategies based on outcomes, and ensure efficient use of limited resources. Furthermore, data sharing between different stakeholders creates a collaborative ecosystem where solutions can be developed and implemented more effectively.</p>
+                    </div>
+                    <div class="benefits-image">
+                        <img src="./images/NGOs-in-Youth-Empowerment.jpg" alt="Data Analysis Illustration">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision Section -->
+    <section class="vision-section">
+        <div class="vision-container">
+            <div class="vision-content">
+                <h2>✨ Our Vision</h2>
+                <p>We aim to reduce youth unemployment by collecting, analyzing, and visualizing real-time data from across the country. Through this platform, we provide NGOs and government bodies with insights to make better policies and initiatives.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it Works Section -->
+    <section class="workflow-section">
+        <div class="workflow-container">
+            <h2>⚙️ How the Youth Unemployment Tracker Works</h2>
+            <div class="workflow-grid">
+                <div class="workflow-item">
+                    <div class="workflow-icon">📋</div>
+                    <h3>Data Collection</h3>
+                    <p>Youth submit age, education, employment details through a simple online form.</p>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-icon">🗄️</div>
+                    <h3>Data Storage</h3>
+                    <p>Information is securely stored in our MySQL database.</p>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-icon">🧹</div>
+                    <h3>Data Cleaning</h3>
+                    <p>The backend (Python) categorizes and prepares the data.</p>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-icon">📊</div>
+                    <h3>Visual Dashboard</h3>
+                    <p>Power BI and frontend tools generate real-time insights and graphs.</p>
+                </div>
+                <div class="workflow-item">
+                    <div class="workflow-icon">📈</div>
+                    <h3>Insight Delivery</h3>
+                    <p>Governments, NGOs, and researchers use the data to identify trends and take action.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Platform Users Section -->
+    <section class="users-section">
+        <div class="users-container">
+            <h2>Who Can Use This Platform?</h2>
+            <div class="users-grid">
+                <div class="user-card">
+                    <div class="user-icon">🏛️</div>
+                    <h3>Government Departments</h3>
+                    <p>To design better youth employment policies.</p>
+                </div>
+                <div class="user-card">
+                    <div class="user-icon">🤝</div>
+                    <h3>NGOs</h3>
+                    <p>To understand regional issues and target efforts.</p>
+                </div>
+                <div class="user-card">
+                    <div class="user-icon">👨‍🎓</div>
+                    <h3>Students</h3>
+                    <p>To see trends and stay informed.</p>
+                </div>
+                <div class="user-card">
+                    <div class="user-icon">📊</div>
+                    <h3>Researchers</h3>
+                    <p>For accessing real-time demographic employment stats.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <style>
+        .users-section {
+            background: linear-gradient(45deg, #f6f8fa, #e9ecef);
+            padding: 5rem 2rem;
+        }
+
+        .users-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .users-container h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .users-container h2::after {
+            content: '';
+            display: block;
+            width: 60%;
+            height: 3px;
+            background: linear-gradient(90deg, #3498db, transparent);
+            margin-top: 10px;
+        }
+
+        .users-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+
+        .user-card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .user-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border-color: #3498db;
+        }
+
+        .user-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .user-card h3 {
+            color: #2c3e50;
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .user-card p {
+            color: #34495e;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 1024px) {
+            .users-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .users-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .users-container h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+    <style>
+        .workflow-section {
+            background-color: #f8fafc;
+            padding: 4rem 2rem;
+        }
+
+        .workflow-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .workflow-container h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .workflow-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            padding: 1rem;
+        }
+
+        .workflow-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .workflow-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .workflow-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .workflow-item h3 {
+            color: #2c3e50;
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+        }
+
+        .workflow-item p {
+            color: #34495e;
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        @media (max-width: 768px) {
+            .workflow-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .workflow-container h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+    <style>
+        .vision-section {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            padding: 4rem 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .vision-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .vision-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .vision-content h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            font-weight: bold;
+        }
+
+        .vision-content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .vision-content h2 {
+                font-size: 2.5rem;
+            }
+
+            .vision-content p {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+
+    <style>
+        .data-benefits-section {
+            background-color: #ffffff;
+            padding: 4rem 2rem;
+        }
+
+        .benefits-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .benefits-content h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: left;
+            padding-left: 0;
+            max-width: 80%;
+            line-height: 1.2;
+            /* Allow text to wrap naturally */
+            white-space: normal;
+            word-wrap: break-word;
+        }
+
+        .benefits-layout {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .benefits-text {
+            flex: 1;
+        }
+
+        .benefits-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 1.5rem;
+        }
+
+        .benefits-image {
+            flex: 1;
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .benefits-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .benefits-layout {
+                flex-direction: column;
+            }
+
+            .benefits-content h2 {
+                font-size: 2rem;
+                text-align: center;
+                padding-left: 0;
+            }
+        }
+    </style>
+
+    <style>
+        .importance-section {
+            background-color: #f8fafc;
+            padding: 4rem 2rem;
+        }
+
+        .importance-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .importance-content h2 {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: right;
+            padding-right: 2rem;
+        }
+
+        .importance-layout {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .importance-image {
+            flex: 1;
+            height: 350px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+
+        .importance-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .importance-text {
+            flex: 1;
+        }
+
+        .importance-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #34495e;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .importance-layout {
+                flex-direction: column;
+            }
+
+            .importance-content h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+
+    <style>
+        .hero-section {
+            background: linear-gradient(135deg, #3498db, #2c3e50);
+            padding: 8rem 2rem 4rem;
+            color: white;
+        }
+
+        .hero-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            margin-bottom: 2rem;
+            font-weight: bold;
+        }
+
+        .hero-layout {
+            display: flex;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-image {
+            flex: 1;
+            height: 350px;  /* Reduced height */
+            border-radius: 10px;
+            overflow: hidden;
+            padding: 10px;  /* Added padding */
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;  /* Changed from cover to contain */
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+
+            .hero-layout {
+                flex-direction: column;
+            }
+
+            .hero-text p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</body>
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="../index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="submit.html">Submit Data</a></li>
+                        <li><a href="dashboard.html">Dashboard</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <ul>
+                        <li>Email: info@udaantracker.org</li>
+                        <li>Phone: +91 123-456-7890</li>
+                        <li>Address: New Delhi, India</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <ul>
+                        <li><a href="#">Facebook</a></li>
+                        <li><a href="#">Twitter</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Udaan Tracker. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <style>
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        .footer-section h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 2px;
+            background-color: #3498db;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-section ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-section ul li a:hover {
+            color: #3498db;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-bottom p {
+            color: #bdc3c7;
+        }
+
+        @media (max-width: 768px) {
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .footer-section {
+                text-align: center;
+            }
+
+            .footer-section h3::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+        }
+    </style>
+</html>
+<script>
+async function loadAboutData() {
+    try {
+        const response = await fetch('http://localhost:8000/api/about-data/');
+        const data = await response.json();
+
+        // Update mission section
+        document.getElementById('mission-title').textContent = data.mission.title;
+        document.getElementById('mission-description').textContent = data.mission.description;
+
+        // Update statistics
+        document.getElementById('users-registered').textContent = data.stats.users_registered;
+        document.getElementById('states-covered').textContent = data.stats.states_covered;
+        document.getElementById('total-surveys').textContent = data.stats.total_surveys;
+
+        // Update team section
+        const teamContainer = document.getElementById('team-container');
+        data.team.forEach(member => {
+            const memberDiv = document.createElement('div');
+            memberDiv.className = 'team-member';
+            memberDiv.innerHTML = `
+                <h3>${member.name}</h3>
+                <p class="role">${member.role}</p>
+                <p class="description">${member.description}</p>
+            `;
+            teamContainer.appendChild(memberDiv);
+        });
+
+    } catch (error) {
+        console.error('Error loading about data:', error);
+    }
+}
+
+// Load data when page loads
+document.addEventListener('DOMContentLoaded', loadAboutData);
+</script>
