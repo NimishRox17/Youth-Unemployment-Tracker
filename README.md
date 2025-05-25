@@ -148,6 +148,8 @@ Contributions are welcome! If you'd like to contribute to the project, please:
 
 Please ensure your code follows the project's coding style and includes tests where appropriate.
 
+Made by - Anushka Pasari and Nimish Tiwari.
+
 ## License
 
 This project is licensed under the MIT License. See the `LICENSE` file for more details. (You'll need to create a `LICENSE` file with the MIT License text if you choose this license).
